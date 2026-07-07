@@ -1,0 +1,22 @@
+{
+    "java.jdt.ls.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.15.6-hotspot",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-17",
+            "path": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.15.6-hotspot",
+            "default": true
+        }
+    ],
+    "maven.executable.path": "C:\\Users\\Shubham Aher\\.m2\\wrapper\\dists\\apache-maven-3.9.12-bin\\5nmfsn99br87k5d4ajlekdq10k\\apache-maven-3.9.12\\bin\\mvn.cmd",
+    "java.configuration.maven.userSettings": "C:\\Users\\Shubham Aher\\.m2\\settings.xml",
+    "maven.terminal.useJavaHome": true,
+    "java.project.referencedLibraries": [],
+    "java.compile.nullAnalysis.mode": "disabled",
+    "java.autobuild.enabled": true,
+    "java.maxConcurrentBuilds": 1,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "redhat.java",
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    }
+}

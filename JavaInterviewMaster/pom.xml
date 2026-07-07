@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ============================================================
+         SPRING BOOT PARENT POM
+         Interview Q: What does spring-boot-starter-parent provide?
+         - Dependency management (curated, compatible versions)
+         - Plugin management (maven-compiler-plugin, spring-boot-maven-plugin)
+         - Default resource filtering
+         - Sensible defaults for Java version, encoding, etc.
+         ============================================================ -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <!-- ============================================================
+         PROJECT COORDINATES
+         groupId   : Organization/company identifier (reverse domain)
+         artifactId: Project/module name (unique within groupId)
+         version   : Semantic versioning - MAJOR.MINOR.PATCH
+         ============================================================ -->
+    <groupId>com.interview</groupId>
+    <artifactId>master</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Java Interview Master</name>
+    <description>Complete Java Interview Preparation - Core Java + Spring Boot</description>
+
+    <!-- ============================================================
+         PROPERTIES
+         Interview Q: How do you set Java version in Maven?
+         java.version property is read by spring-boot-starter-parent
+         ============================================================ -->
+    <properties>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- Spring Cloud BOM version aligned with Spring Boot 3.2.x -->
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
+    </properties>
+
+    <!-- ============================================================
+         DEPENDENCIES
+         Interview Q: What is the difference between dependencies?
+         - spring-boot-starter-*: Opinionated starter POMs bundling
+           multiple related dependencies for a specific feature area
+         - scope: compile (default), test, runtime, provided, system
+         ============================================================ -->
+    <dependencies>
+
+        <!-- ============================================================
+             WEB STARTER
+             Interview Q: What does spring-boot-starter-web include?
+             - Spring MVC (DispatcherServlet, @RestController, @RequestMapping)
+             - Embedded Tomcat server (no WAR deployment needed)
+             - Jackson (JSON serialization/deserialization)
+             - Spring Core, Spring Context, Spring Beans
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- ============================================================
+             DATA JPA STARTER
+             Interview Q: What does spring-boot-starter-data-jpa include?
+             - Spring Data JPA (JpaRepository, CrudRepository)
+             - Hibernate (JPA implementation / ORM)
+             - Spring ORM, Spring JDBC, HikariCP (connection pool)
+             Interview Q: JPA vs Hibernate vs Spring Data JPA?
+             - JPA: Specification (interface/standard) - javax.persistence
+             - Hibernate: Implementation of JPA specification
+             - Spring Data JPA: Abstraction over JPA, reduces boilerplate
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- ============================================================
+             SECURITY STARTER
+             Interview Q: What does spring-boot-starter-security include?
+             - Spring Security (Authentication + Authorization)
+             - Auto-configures: HTTP Basic auth, Form login, CSRF protection
+             - Default: ALL endpoints secured with auto-generated password
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- ============================================================
+             VALIDATION STARTER
+             Interview Q: What is Bean Validation (JSR-380)?
+             - Provides annotations: @NotNull, @Size, @Email, @Min, @Max
+             - Hibernate Validator is the reference implementation
+             - @Valid / @Validated triggers validation in Spring MVC
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- ============================================================
+             AOP STARTER
+             Interview Q: What is AOP (Aspect-Oriented Programming)?
+             - Separates cross-cutting concerns (logging, security, transactions)
+             - Key concepts: Aspect, Advice, Pointcut, JoinPoint, Weaving
+             - Spring AOP uses proxy-based approach (JDK or CGLIB proxies)
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <!-- ============================================================
+             CACHE STARTER
+             Interview Q: What is Spring Cache Abstraction?
+             - @Cacheable: Cache method result
+             - @CachePut: Update cache without skipping method
+             - @CacheEvict: Remove entries from cache
+             - Supports: Ehcache, Redis, Caffeine, Hazelcast, Simple (ConcurrentMap)
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+        <!-- ============================================================
+             ACTUATOR STARTER
+             Interview Q: What is Spring Boot Actuator?
+             - Production-ready features: health checks, metrics, info
+             - Built-in endpoints: /actuator/health, /actuator/metrics,
+               /actuator/env, /actuator/beans, /actuator/mappings
+             - Can be integrated with Prometheus, Grafana for monitoring
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- ============================================================
+             H2 IN-MEMORY DATABASE
+             Interview Q: What is H2?
+             - Embedded Java relational database
+             - Runs in-memory (data lost on restart) or file-based
+             - Used for development/testing (never production)
+             - scope=runtime: Not needed for compilation, only at runtime
+             ============================================================ -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- ============================================================
+             LOMBOK
+             Interview Q: What is Lombok?
+             - Annotation processor that generates boilerplate code
+             - @Getter, @Setter, @ToString, @EqualsAndHashCode
+             - @AllArgsConstructor, @NoArgsConstructor, @RequiredArgsConstructor
+             - @Data = @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor
+             - @Builder: Implements Builder design pattern
+             - optional=true: Not required for compilation of other modules
+             ============================================================ -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- ============================================================
+             SPRING BOOT DEVTOOLS
+             Interview Q: What is Spring Boot DevTools?
+             - Automatic restart on class file changes (faster than cold start)
+             - LiveReload support for browser auto-refresh
+             - Disabled in production automatically (when running as JAR)
+             - optional=true: Not needed by dependent modules
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- ============================================================
+             TEST STARTER
+             Interview Q: What does spring-boot-starter-test include?
+             - JUnit 5 (Jupiter): Modern Java testing framework
+             - Mockito: Mocking framework for unit tests
+             - AssertJ: Fluent assertion library
+             - Hamcrest: Matcher library
+             - Spring Test: @SpringBootTest, @MockBean, @WebMvcTest
+             - scope=test: Only available during test compilation and execution
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Spring Security Test support -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- ============================================================
+             SPRING CLOUD / MICROSERVICES DEPENDENCIES
+             Interview Q: What is Spring Cloud?
+             - Suite of tools for building distributed systems / microservices
+             - Provides: service discovery, config server, gateway, feign, etc.
+             - Versions are managed by the Spring Cloud BOM (importDependencyManagement)
+             ============================================================ -->
+
+        <!-- Spring Cloud OpenFeign - Declarative REST client -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud LoadBalancer - replaces deprecated Netflix Ribbon -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+
+        <!-- Eureka Client - service registration and discovery -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud Config Client - fetch config from config server -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud Gateway - API Gateway (reactive) -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+        <!-- ============================================================
+             RESILIENCE4J - Circuit Breaker, Retry, RateLimiter, Bulkhead
+             Interview Q: Why Resilience4j over Hystrix?
+             - Hystrix is in maintenance mode (Netflix)
+             - Resilience4j is lightweight, designed for Java 8+, functional style
+             - Spring Cloud CircuitBreaker abstraction works with Resilience4j
+             ============================================================ -->
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-spring-boot3</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud CircuitBreaker with Resilience4j integration -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+        </dependency>
+
+        <!-- AOP needed for @CircuitBreaker, @Retry, @RateLimiter annotations -->
+        <!-- Already included via spring-boot-starter-aop above -->
+
+        <!-- ============================================================
+             SPRING WEBFLUX - Reactive programming (WebClient)
+             Interview Q: What is Project Reactor?
+             - Reactive Streams implementation for JVM
+             - Mono<T>: 0 or 1 element (like Optional but async)
+             - Flux<T>: 0 to N elements (like Stream but async)
+             - WebClient uses Reactor under the hood
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <!-- ============================================================
+             APACHE KAFKA - Event Streaming
+             Interview Q: What is spring-kafka?
+             - Spring integration for Apache Kafka
+             - KafkaTemplate: send messages
+             - @KafkaListener: consume messages
+             - Auto-configures ProducerFactory, ConsumerFactory, KafkaAdmin
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
+        <!-- Kafka test utilities -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- ============================================================
+             MICROMETER - Metrics & Distributed Tracing
+             Interview Q: What is Micrometer?
+             - Vendor-neutral metrics facade (like SLF4J for metrics)
+             - Supports: Prometheus, Graphite, Datadog, CloudWatch
+             - Spring Boot Actuator uses Micrometer for /actuator/metrics
+             ============================================================ -->
+        <!-- Prometheus registry for metrics export -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+
+        <!-- Micrometer Tracing Bridge for Brave (used by Zipkin/Sleuth) -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-tracing-bridge-brave</artifactId>
+        </dependency>
+
+        <!-- Zipkin reporter - sends trace data to Zipkin server -->
+        <dependency>
+            <groupId>io.zipkin.reporter2</groupId>
+            <artifactId>zipkin-reporter-brave</artifactId>
+        </dependency>
+
+        <!-- ============================================================
+             JACKSON - JSON Serialization / Deserialization
+             Interview Q: What is Jackson?
+             - Most popular JSON library for Java
+             - ObjectMapper: main class for JSON read/write
+             - @JsonProperty, @JsonIgnore, @JsonFormat annotations
+             - Spring Boot auto-configures Jackson with sensible defaults
+             ============================================================ -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+
+        <!-- ============================================================
+             REDIS - Caching
+             Interview Q: When to use Redis vs Caffeine cache?
+             - Redis: distributed cache (shared across multiple instances)
+             - Caffeine: in-process cache (per-instance, very fast)
+             - Redis also supports: pub/sub, sessions, rate limiting
+             ============================================================ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <!-- ============================================================
+         DEPENDENCY MANAGEMENT - Spring Cloud BOM
+         Interview Q: What is a BOM (Bill of Materials)?
+         - POM file that declares versions of a set of related dependencies
+         - Ensures all Spring Cloud dependencies use compatible versions
+         - scope=import + type=pom: import all version management from BOM
+         ============================================================ -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- ============================================================
+         BUILD PLUGINS
+         Interview Q: What does spring-boot-maven-plugin do?
+         - Packages application as executable JAR (fat/uber JAR)
+         - Includes all dependencies inside the JAR
+         - Adds Spring Boot loader classes
+         - Enables: java -jar myapp.jar to run without app server
+         ============================================================ -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- Exclude Lombok from the final JAR (compile-time only) -->
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <!-- Maven Compiler Plugin - explicitly set Java version -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                    <!-- Enable annotation processing for Lombok -->
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
