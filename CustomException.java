@@ -1,11 +1,21 @@
-class emptyCustomException extends Exception{
-    emptyCustomException(String error){
-        System.out.print("getClass()");
-        // super(error);
+class  MyException extends  Exception{
+
+    public MyException(String myName) {
+        super(myName);
+    }
+    
+}
+
+
+class CustomException{
+    public static void main(String[] args) {
+     try {
+        throw  new MyException("This ");
+         
+     } catch (Exception e) {
+        System.err.println(e);
+     }
     }
 }
-class MyCustomException{
-    public static void main(String arg[]) throws emptyCustomException{
-        throw new emptyCustomException("this ");
-    }
-}
+
+

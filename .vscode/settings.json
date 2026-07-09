@@ -19,8 +19,10 @@
     "java.maxConcurrentBuilds": 1,
 
     "java.project.sourcePaths": [
-        "JavaInterviewMaster/src/main/java"
+        "JavaInterviewMaster/src/main/java",
+        ""
     ],
 
-    "java.configuration.maven.userSettings": "C:\\Users\\Shubham Aher\\.m2\\settings.xml"
+    "java.configuration.maven.userSettings": "C:\\Users\\Shubham Aher\\.m2\\settings.xml",
+    "java.compile.nullAnalysis.mode": "automatic"
 }

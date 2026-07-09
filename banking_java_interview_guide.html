@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Banking & Fintech Java Developer Interview Guide</title>
+<style>
+  :root{
+    --bg:#faf9f6; --card:#ffffff; --border:#e4e1d8; --text:#2c2c2a; --text2:#5f5e5a; --text3:#888780;
+    --accent:#185fa5; --accent-bg:#e6f1fb;
+    --easy-bg:#eaf3de; --easy-text:#27500a;
+    --med-bg:#faeeda; --med-text:#633806;
+    --hard-bg:#faece7; --hard-text:#712b13;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;}
+  .wrap{max-width:900px;margin:0 auto;padding:2rem 1.25rem 4rem;}
+  h1{font-size:24px;font-weight:600;margin:0 0 4px;}
+  .sub{color:var(--text2);font-size:14px;margin-bottom:1.5rem;}
+  input#search{width:100%;padding:10px 14px;font-size:14px;border:1px solid var(--border);border-radius:8px;background:var(--card);margin-bottom:1rem;}
+  .catnav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem;}
+  .catnav a{font-size:12px;padding:5px 10px;border:1px solid var(--border);border-radius:999px;background:var(--card);color:var(--text2);text-decoration:none;}
+  .category{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;}
+  .category h2{font-size:18px;margin:0 0 6px;color:var(--accent);}
+  .catdesc{font-size:13px;color:var(--text2);margin-bottom:12px;}
+  .companies{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+  .co{font-size:12px;padding:4px 9px;border-radius:6px;background:var(--accent-bg);color:var(--accent);}
+  .co b{font-weight:600;}
+  .co span{color:var(--text3);}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  td{padding:8px 6px;border-bottom:1px solid var(--border);vertical-align:top;}
+  td.q{width:70%;}
+  td.topic{color:var(--text3);font-size:12px;width:18%;}
+  .diff{font-size:11px;padding:2px 8px;border-radius:999px;white-space:nowrap;}
+  .easy{background:var(--easy-bg);color:var(--easy-text);}
+  .med{background:var(--med-bg);color:var(--med-text);}
+  .hard{background:var(--hard-bg);color:var(--hard-text);}
+  .hidden{display:none;}
+  .tip{margin-top:12px;padding:10px 14px;background:var(--accent-bg);border-radius:8px;font-size:13px;color:#0c447c;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Banking &amp; fintech Java developer interview guide</h1>
+  <div class="sub">100+ companies grouped by category. Each category shows the real question set companies in that group draw from, tagged by topic and difficulty. Search filters both companies and questions.</div>
+  <input id="search" placeholder="Search a company, topic, or keyword (e.g. JPMorgan, concurrency, Kafka)...">
+  <div class="catnav" id="catnav"></div>
+  <div id="categories"></div>
+</div>
+
+<script>
+const DATA = [
+{
+  id:"ibanks",
+  title:"Global investment banks",
+  desc:"Heaviest on Java concurrency, JVM internals, and low-latency system design. Expect production-grade coding style and trading/risk domain system design rounds.",
+  companies:["JPMorgan Chase","Goldman Sachs","Morgan Stanley","Barclays","Citigroup","Deutsche Bank","UBS","Credit Suisse (now UBS)","BNP Paribas","Societe Generale","Nomura","RBC Capital Markets","Wells Fargo Securities","BofA Securities","Macquarie","NatWest Markets","Mizuho","Sumitomo Mitsui (SMBC)","MUFG"],
+  tip:"Typical loop: OA (DSA + Java) &rarr; phone screen (Core Java/multithreading) &rarr; 2-3 onsite rounds (coding + system design) &rarr; hiring manager/culture fit. Low-latency and JVM tuning questions are common at VP+ level.",
+  questions:[
+    ["Explain how ConcurrentHashMap achieves thread safety internally (segment locking / CAS in Java 8+).","Concurrency","Hard"],
+    ["Design a low-latency order matching engine — what data structures avoid lock contention?","System design","Hard"],
+    ["Difference between CompletableFuture and plain Future — how do you chain async calls for a trade settlement flow?","Concurrency","Medium"],
+    ["What is false sharing and how does it hurt performance in a tight trading loop?","JVM / performance","Hard"],
+    ["Explain JVM garbage collectors (G1 vs ZGC) — which would you pick for a latency-sensitive service and why?","JVM internals","Hard"],
+    ["How would you design a risk calculation engine that recomputes on every market tick?","System design","Hard"],
+    ["ReentrantLock vs synchronized — when does the explicit lock actually help?","Concurrency","Medium"],
+    ["What is a memory barrier and how does volatile relate to it?","Concurrency","Hard"],
+    ["Design an idempotent trade booking API that must never double-book on retry.","System design","Medium"],
+    ["Explain the producer-consumer pattern using BlockingQueue for a market-data feed handler.","Concurrency","Medium"],
+    ["How do you profile and fix a memory leak in a long-running Java trading service?","JVM / performance","Hard"],
+    ["Write code to detect a cycle in a settlement dependency graph.","DSA","Medium"],
+    ["SQL: find accounts with more failed trades than successful ones in the last 24 hours.","SQL","Medium"],
+    ["How do you ensure exactly-once processing when consuming from Kafka for payment events?","Messaging","Hard"],
+    ["Tell me about a time you had to deliver under regulatory or compliance pressure.","Behavioral","Easy"]
+  ]
+},
+{
+  id:"retail",
+  title:"Universal / retail banks",
+  desc:"Broader mix — core banking, Spring Boot microservices, SQL, and customer-facing API security. Less low-latency, more scale and reliability focus.",
+  companies:["HSBC","Standard Chartered","Wells Fargo","Bank of America","BNY Mellon","State Street","Northern Trust","TD Bank","Scotiabank","CIBC","BMO Financial","ING","Rabobank","ABN AMRO","KBC Bank","Santander","BBVA","CaixaBank","Intesa Sanpaolo","UniCredit","Danske Bank","Nordea","DBS Bank","OCBC Bank","UOB","Maybank","ANZ","Commonwealth Bank","Westpac","NAB","Emirates NBD","First Abu Dhabi Bank","Qatar National Bank","Al Rajhi Bank","Standard Bank","Absa Group","Nedbank"],
+  tip:"Typical loop: online assessment &rarr; technical phone screen (Java + SQL) &rarr; 1-2 technical rounds &rarr; managerial/HR round. Strong emphasis on Spring Boot, REST API design, and data security compliance.",
+  questions:[
+    ["Explain @Transactional propagation types — what happens if a debit succeeds but a credit fails?","Spring Boot","Medium"],
+    ["How does Spring Boot auto-configuration work under the hood?","Spring Boot","Medium"],
+    ["Design a REST API for account-to-account transfer that's safe to retry (idempotency key).","System design","Medium"],
+    ["Explain the Circuit Breaker pattern — why does a core banking call to a third-party KYC service need one?","Microservices","Medium"],
+    ["N+1 query problem in Hibernate — how do you detect and fix it for a customer-with-accounts entity?","Database / JPA","Medium"],
+    ["Write a SQL query to find the second-highest balance account per branch.","SQL","Easy"],
+    ["Explain isolation levels — why might READ COMMITTED cause a stale balance read?","SQL","Medium"],
+    ["How do you secure a public banking API with OAuth2 and JWT together?","Security","Medium"],
+    ["What is the Saga pattern and how does it keep a multi-service funds transfer consistent?","Microservices","Hard"],
+    ["Explain optimistic vs pessimistic locking for concurrent account updates.","Database","Medium"],
+    ["Design a rate limiter for a public-facing balance-check API.","System design","Medium"],
+    ["What is PCI-DSS and how does it constrain how you store card data in code?","Security / compliance","Easy"],
+    ["Bean scopes in Spring — when would a request-scoped bean matter in a banking app?","Spring Boot","Easy"],
+    ["How do you implement audit logging that can't be tampered with after the fact?","Security","Medium"],
+    ["Tell me about a time a requirement changed late due to a compliance rule.","Behavioral","Easy"]
+  ]
+},
+{
+  id:"indian",
+  title:"Indian banks & NBFCs",
+  desc:"Core Java fundamentals, Collections, SQL, and Spring Boot basics are asked heavily, often alongside a coding round. Less system design depth than global banks.",
+  companies:["HDFC Bank","ICICI Bank","Axis Bank","Kotak Mahindra Bank","State Bank of India","Yes Bank","IndusInd Bank","IDFC First Bank","Federal Bank","RBL Bank","Bandhan Bank","AU Small Finance Bank","Bajaj Finserv","Punjab National Bank","Bank of Baroda","Canara Bank","Union Bank of India","Paytm Payments Bank"],
+  tip:"Typical loop: aptitude/OA &rarr; technical interview (Core Java + SQL + project discussion) &rarr; HR round. Many of these hire through IT-services vendors rather than directly — check the IT services category too.",
+  questions:[
+    ["Explain the 4 pillars of OOP with an account-hierarchy example (SavingsAccount extends Account).","Core Java","Easy"],
+    ["Why is String immutable in Java, and what's the String pool?","Core Java","Easy"],
+    ["equals() and hashCode() contract — what breaks in a HashSet of Customer objects if you get it wrong?","Core Java","Medium"],
+    ["Difference between ArrayList and LinkedList — which for a transaction history list that's mostly appended?","Collections","Easy"],
+    ["HashMap internals — how does it resolve collisions, and what changed in Java 8?","Collections","Medium"],
+    ["Use Java 8 Streams to group a list of transactions by account number and sum amounts.","Java 8","Medium"],
+    ["What is the difference between checked and unchecked exceptions? Give a banking example of each.","Core Java","Easy"],
+    ["Explain try-with-resources and why it matters when closing a DB connection.","Core Java","Easy"],
+    ["Write a SQL query to find customers with no transactions in the last 90 days.","SQL","Easy"],
+    ["What are JOIN types — write a query joining Customer and Account tables.","SQL","Easy"],
+    ["Explain the Spring Bean lifecycle briefly.","Spring Boot","Easy"],
+    ["What is dependency injection and why does it help testability?","Spring Boot","Easy"],
+    ["Difference between abstract class and interface — when would you pick each for a Loan type hierarchy?","Core Java","Easy"],
+    ["Explain multithreading basics — what is a race condition?","Concurrency","Medium"],
+    ["Walk me through a project where you worked on a banking or financial module.","Behavioral","Easy"]
+  ]
+},
+{
+  id:"fintech",
+  title:"Fintech & payments",
+  desc:"Fast-moving interviews with a strong machine-coding component. Expect to build a small working feature (API + tests) live, plus payments-specific system design.",
+  companies:["Visa","Mastercard","PayPal","American Express","Stripe","Block (Square)","Klarna","Chime","N26","Monzo","Revolut","Plaid","Robinhood","Coinbase","Razorpay","PhonePe","Paytm","CRED"],
+  tip:"Typical loop: OA &rarr; machine coding round (build a working payment feature in 60-90 min) &rarr; system design &rarr; behavioral. Product sense and ownership questions are weighted heavily.",
+  questions:[
+    ["Design a payment gateway that guarantees a transaction is processed exactly once.","System design","Hard"],
+    ["Machine coding: build a REST API to create and settle a wallet-to-wallet transfer, with tests.","Coding","Hard"],
+    ["How do you design idempotency keys for a /charge endpoint so retries don't double-charge?","System design","Medium"],
+    ["Explain how you'd design a fraud-scoring pipeline that reacts within milliseconds of a transaction.","System design","Hard"],
+    ["Kafka basics — how would you use it to decouple payment initiation from settlement?","Messaging","Medium"],
+    ["Design a rate limiter / throttle for API abuse on a public payments API.","System design","Medium"],
+    ["What is eventual consistency and how do you communicate a 'pending' payment state to a user?","Distributed systems","Medium"],
+    ["Write code to validate a card number using the Luhn algorithm.","Coding","Easy"],
+    ["How would you version a public payments API without breaking existing merchant integrations?","API design","Medium"],
+    ["Explain webhooks — how do you make webhook delivery reliable (retries, signatures)?","API design","Medium"],
+    ["Design a ledger service that reconciles internal balances against a payment processor nightly.","System design","Hard"],
+    ["How would you improve our checkout flow's reliability? (product sense)","Product / behavioral","Easy"],
+    ["Tell me about a time you shipped something fast despite ambiguity.","Behavioral","Easy"]
+  ]
+},
+{
+  id:"vendors",
+  title:"Trading & core-banking tech vendors",
+  desc:"Deep domain-specific Java: trading platforms, risk systems, and core banking suites. Expect detailed questions on the vendor's own product architecture pattern (even if you haven't used that exact product).",
+  companies:["FIS","Fiserv","Jack Henry","ACI Worldwide","Temenos","Finastra","nCino","Q2","SS&C Technologies","Broadridge","Murex","Calypso Technology","Charles River Development","BlackRock (Aladdin)","Bloomberg","LSEG / Refinitiv","ICE (Intercontinental Exchange)","CME Group","Nasdaq"],
+  tip:"Typical loop: technical screen (Core Java + SQL) &rarr; domain-specific round (trading lifecycle, settlement, or core-banking config) &rarr; system design &rarr; final round with a senior architect.",
+  questions:[
+    ["Explain the trade lifecycle (execution -> clearing -> settlement) and where a Java service typically sits in it.","Domain / system design","Medium"],
+    ["Design a service that recalculates portfolio risk whenever a position changes.","System design","Hard"],
+    ["How would you model a multi-currency ledger to avoid rounding errors (BigDecimal vs double)?","Core Java","Medium"],
+    ["Explain event sourcing — why might a core-banking system use it for account history?","System design","Hard"],
+    ["Write a query to reconcile two trade-feed tables and flag mismatches.","SQL","Medium"],
+    ["How do you design a plugin/rules engine so business users can configure logic without redeploying?","System design","Hard"],
+    ["Explain the difference between batch and real-time processing — where would you use each in settlement?","System design","Medium"],
+    ["What is a message queue's role in decoupling a trade capture system from downstream risk systems?","Messaging","Medium"],
+    ["How do you handle schema evolution in a long-lived core-banking database?","Database","Medium"],
+    ["Multithreading: how would you parallelize end-of-day batch settlement safely?","Concurrency","Hard"],
+    ["Tell me about a time you had to understand a large legacy codebase quickly.","Behavioral","Easy"]
+  ]
+},
+{
+  id:"itservices",
+  title:"IT services BFSI practices",
+  desc:"Broad Core Java, Spring Boot, Hibernate, SQL, and Java 8 questions with heavy volume — these firms interview at high scale for banking clients. Expect a coding round plus a client-project discussion.",
+  companies:["TCS BFSI","Infosys BFSI","Wipro BFSI","Cognizant BFSI","Capgemini BFSI","Accenture BFSI","HCLTech BFSI","Tech Mahindra BFSI","LTIMindtree","Virtusa","Synechron","Publicis Sapient","EPAM Systems","Luxoft","Wissen Technology","Wipro FullStride"],
+  tip:"Typical loop: OA (aptitude + coding) &rarr; technical round 1 (Core Java/Collections/Java 8) &rarr; technical round 2 (Spring Boot/Hibernate/SQL, sometimes a coding exercise) &rarr; HR/managerial round. Domain questions about banking projects impress interviewers.",
+  questions:[
+    ["Explain polymorphism with a real code example — compile-time vs runtime.","Core Java","Easy"],
+    ["Final vs finally vs finalize — explain each.","Core Java","Easy"],
+    ["Explain the Executor framework and thread pool types (Fixed, Cached, Scheduled).","Concurrency","Medium"],
+    ["volatile vs synchronized — what problem does each solve?","Concurrency","Medium"],
+    ["Write Java 8 Streams code to filter, map, and collect a list of accounts into a Map<String, Double>.","Java 8","Medium"],
+    ["WHERE vs HAVING — give an example query using both.","SQL","Easy"],
+    ["Explain JOIN types (INNER, LEFT, RIGHT, FULL) with a two-table example.","SQL","Easy"],
+    ["What is Spring Boot auto-configuration and how do starters work?","Spring Boot","Easy"],
+    ["Write a simple REST controller with a GET and POST endpoint.","Spring Boot","Easy"],
+    ["Explain Hibernate's N+1 problem and how @EntityGraph or JOIN FETCH fixes it.","Hibernate","Medium"],
+    ["L1 vs L2 cache in Hibernate — when would you enable L2?","Hibernate","Medium"],
+    ["Solve: check if a string has valid balanced parentheses.","DSA / coding","Easy"],
+    ["Solve: find two numbers in an array that sum to a target (Two Sum).","DSA / coding","Easy"],
+    ["Explain the Builder and Factory design patterns with code.","Design patterns","Medium"],
+    ["SOLID principles — give one-line definitions for each.","Design patterns","Easy"],
+    ["Why do you want to join [company], and tell me about a banking project you've worked on.","Behavioral","Easy"]
+  ]
+}
+];
+
+const diffClass = {Easy:"easy",Medium:"med",Hard:"hard"};
+
+function render(){
+  const nav = document.getElementById('catnav');
+  const root = document.getElementById('categories');
+  nav.innerHTML = DATA.map(c=>`<a href="#${c.id}">${c.title}</a>`).join('');
+  root.innerHTML = DATA.map(c=>`
+    <div class="category" id="${c.id}" data-cat>
+      <h2>${c.title}</h2>
+      <div class="catdesc">${c.desc}</div>
+      <div class="companies">${c.companies.map(co=>`<span class="co" data-co="${co.toLowerCase()}">${co}</span>`).join('')}</div>
+      <table>${c.questions.map(q=>`
+        <tr data-row data-text="${(q[0]+' '+q[1]).toLowerCase()}">
+          <td class="q">${q[0]}</td>
+          <td class="topic">${q[1]}</td>
+          <td><span class="diff ${diffClass[q[2]]}">${q[2]}</span></td>
+        </tr>`).join('')}</table>
+      <div class="tip">${c.tip}</div>
+    </div>
+  `).join('');
+}
+render();
+
+document.getElementById('search').addEventListener('input', e=>{
+  const term = e.target.value.toLowerCase().trim();
+  document.querySelectorAll('[data-cat]').forEach(cat=>{
+    let anyMatch = !term;
+    const companies = cat.querySelectorAll('.co');
+    let companyMatch = false;
+    companies.forEach(co=>{
+      const match = !term || co.dataset.co.includes(term);
+      co.style.opacity = match ? '1' : '0.25';
+      if(match && term) companyMatch = true;
+    });
+    const rows = cat.querySelectorAll('[data-row]');
+    let rowMatch = false;
+    rows.forEach(r=>{
+      const match = !term || r.dataset.text.includes(term);
+      r.classList.toggle('hidden', term && !match);
+      if(match && term) rowMatch = true;
+    });
+    anyMatch = !term || companyMatch || rowMatch;
+    cat.classList.toggle('hidden', !anyMatch);
+  });
+});
+</script>
+</body>
+</html>
