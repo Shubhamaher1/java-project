@@ -1,29 +1,29 @@
 # Java Developer Interview Questions — Compiled from All Transcripts
 
 ## 1. Core Java / OOPs
-- What are the OOPs concepts? (Abstraction, Encapsulation, Inheritance, Polymorphism)
-- Explain abstraction with a real-time example (e.g., ATM machine interface)
-- What is data hiding? How is it different from abstraction?
-- Which of these examples is true data abstraction vs encapsulation (scenario-based MCQ: private field, getter/setter, protected class, abstract car class)
-- Types of access modifiers — public, private, default, protected
-- Explain private and protected access modifiers
-- Composition vs Aggregation
-- Write a short coding example for inheritance
-- Explain the Java memory model (heap, stack, string constant pool)
-- What is metaspace?
-- What is method overloading? Does changing return type only make it valid overloading?
-- If a method call is ambiguous due to overloaded methods with `null` argument, is it a compile-time or runtime error?
-- Is method overloading compile-time or runtime polymorphism?
-- Method overriding: can the return type in the child class differ (covariant return types)?
-- If the parent method throws a checked exception, does the child override need to declare it too?
-- Static vs dynamic polymorphism — which decides which method to call and when
-- What is default method inside an interface, and its relevance (backward compatibility)?
-- Two interfaces with the same default method signature implemented by one class — ambiguity problem and how to resolve it (override the method)
-- Is there a risk of the "diamond problem" with default methods?
-- What is data hiding — can you access data without getters/setters?
-- What is the use of `default` and `static` methods in a functional interface?
-- What are the 5 features of Java? Why is Java "simple"? Why is it "almost" object-oriented?
-- Why is Java a platform-independent language? Role of JVM.
+-- What are the OOPs concepts? (Abstraction, Encapsulation, Inheritance, Polymorphism)
+-- Explain abstraction with a real-time example (e.g., ATM machine interface)
+-- What is data hiding? How is it different from abstraction?
+-- Which of these examples is true data abstraction vs encapsulation (scenario-based MCQ: private field, getter/setter, protected class, abstract car class)
+-- Types of access modifiers — public, private, default, protected
+-- Explain private and protected access modifiers
+-- Composition vs Aggregation
+-- Write a short coding example for inheritance
+-- Explain the Java memory model (heap, stack, string constant pool)
+-- What is metaspace?
+-- What is method overloading? Does changing return type only make it valid overloading?
+-- If a method call is ambiguous due to overloaded methods with `null` argument, is it a compile-time or runtime error?
+-- Is method overloading compile-time or runtime polymorphism?
+-- Method overriding: can the return type in the child class differ (covariant return types)?
+-- If the parent method throws a checked exception, does the child override need to declare it too?
+-- Static (Overloading)  vs dynamic (Overriding ) polymorphism — which decides which method to call and when
+-- What is default method inside an interface, and its relevance (backward compatibility)?
+-- Two interfaces with the same default method signature implemented by one class — ambiguity problem and how to resolve it (override the method)
+-- Is there a risk of the "diamond problem" with default methods?
+-- What is data hiding — can you access data without getters/setters?
+-- What is the use of `default` and `static` methods in a functional interface?
+-- What are the 5 features of Java? Why is Java "simple"? Why is it "almost" object-oriented?
+-- Why is Java a platform-independent language? Role of JVM.
 - What is JVM? (classloader, bytecode verifier)
 - What is JDK? What components does it contain?
 - What is the entry point of a Java program (`main` method)? Syntax of `main`.
