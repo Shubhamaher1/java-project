@@ -31,30 +31,30 @@
 - - What happens if you remove `static` from `main`? (compiles, fails at runtime)
 - - What are default values assigned to variables/instances (int, float, double, String)?
 - - What is a package in Java? Advantages of using packages?
-- Difference between array and ArrayList; how to add elements to an array
-- What is garbage collection? Objective/purpose of GC
-- New generation vs old generation in GC; types of garbage collectors
-- Explain your approach if you had to force/trigger garbage collection explicitly
-- What is a memory leak? How does it happen? How do you identify/debug one (e.g., unclosed DB/file connections)?
-- Difference between `final`, `finally`, and `finalize`
-- Can we declare an entity/class as final? What's the effect (can't extend / immutable)?
+- - Difference between array and ArrayList; how to add elements to an array
+- - What is garbage collection? Objective/purpose of GC
+- - New generation vs old generation in GC; types of garbage collectors
+- - Explain your approach if you had to force/trigger garbage collection explicitly
+- - What is a memory leak? How does it happen? How do you identify/debug one (e.g., unclosed DB/file connections)?
+- - Difference between `final`, `finally`, and `finalize`
+- - Can we declare an entity/class as final? What's the effect (can't extend / immutable)?
 
 ## 2. Java 8 Features & Streams
-- What are the Java 8 features you've used? (Lambda expressions, functional interfaces, Stream API, method references, Optional, default/static methods)
-- What is a Lambda expression? Why was it introduced?
-- What are functional interfaces? Relevance to lambda expressions
-- What is a method reference (`::`)? When would you use it?
-- What is the difference between `map()` and `flatMap()` in streams?
-- What is a parallel stream? Difference from sequential stream — which method enables it?
-- Which method internally sorts elements when inserting into a TreeMap (merge sort)?
-- What are terminal operations in the Stream API?
-- Write Stream API code to filter employees who joined after a given date
-- Write Stream API code to collect employee name → first address into a `Map<String, Address>`
-- Group employees by department and find the highest salary in each department using Collectors
-- Find total transaction amount per category for transactions in the last 30 days using streams (filter + groupingBy + summingDouble)
-- Fetch employees with salary greater than 50,000 using Stream API
-- Find the longest word in a sentence using Stream API
-- Count character frequency in a string using `chars()` + `groupingBy`/`counting()`
+- - What are the Java 8 features you've used? (Lambda expressions, functional interfaces, Stream API, method references, Optional, default/static methods)
+- - What is a Lambda expression? Why was it introduced?
+- - What are functional interfaces? Relevance to lambda expressions
+- - What is a method reference (`::`)? When would you use it?
+- - What is the difference between `map()` and `flatMap()` in streams?
+- - What is a parallel stream? Difference from sequential stream — which method enables it?
+- - Which method internally sorts elements when inserting into a TreeMap (merge sort)?
+- - What are terminal operations in the Stream API?
+- - Write Stream API code to filter employees who joined after a given date
+- - Write Stream API code to collect employee name → first address into a `Map<String, Address>`
+- - Group employees by department and find the highest salary in each department using Collectors
+- - Find total transaction amount per category for transactions in the last 30 days using streams (filter + groupingBy + summingDouble)
+- - Fetch employees with salary greater than 50,000 using Stream API
+- - Find the longest word in a sentence using Stream API
+- - Count character frequency in a string using `chars()` + `groupingBy`/`counting()`
 
 ## 3. Strings & Immutability
 - Why is String immutable in Java?
