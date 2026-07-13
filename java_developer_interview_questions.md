@@ -24,13 +24,13 @@
 - - What is the use of `default` and `static` thods in a functional interface?
 - - What are the 5 features of Java? Why is Java "simple"? Why is it "almost" object-oriented?
 - - Why is Java a platform-independent language? Role of JVM.
-- What is JVM? (classloader, bytecode verifier)
-- What is JDK? What components does it contain?
-- What is the entry point of a Java program (`main` method)? Syntax of `main`.
-- Why is `main` method static?
-- What happens if you remove `static` from `main`? (compiles, fails at runtime)
-- What are default values assigned to variables/instances (int, float, double, String)?
-- What is a package in Java? Advantages of using packages?
+- - What is JVM? (classloader, bytecode verifier)
+- - What is JDK? What components does it contain?
+- - What is the entry point of a Java program (`main` method)? Syntax of `main`.
+- - Why is `main` method static?
+- - What happens if you remove `static` from `main`? (compiles, fails at runtime)
+- - What are default values assigned to variables/instances (int, float, double, String)?
+- - What is a package in Java? Advantages of using packages?
 - Difference between array and ArrayList; how to add elements to an array
 - What is garbage collection? Objective/purpose of GC
 - New generation vs old generation in GC; types of garbage collectors
