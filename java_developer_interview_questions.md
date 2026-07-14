@@ -87,19 +87,19 @@
 - - How to serialize an object while excluding a field (`transient` keyword)
 
 ## 5. Multithreading & Concurrency
-- Why is synchronization necessary in multithreading? (real-world seat-booking analogy)
-- Lock on an object vs lock on a class — difference
-- Difference between `sleep()` and `wait()`
-- Difference between synchronized collections and Concurrent collections (e.g., ConcurrentHashMap segment-level locking)
-- How many ways can you create a thread?
-- How to ensure Thread T2 runs after T1, and T3 runs after T2 (`join()` method)
-- How to make a specific thread run last among five threads (Executor framework / join)
-- What is the Executor framework? Why/when do you need it?
-- What is a deadlock? Explain with an example (T1 and T2 each holding a resource the other needs)
-- Scenario: shared HashMap in a singleton bean causing cross-user data leakage under load — explain root cause and fix (ConcurrentHashMap/synchronized map)
-- Optimistic locking / version mismatch when multiple threads update the same record concurrently
-- Have you faced any performance issues? How did you resolve them (multithreading)?
-- Thread dump — have you used it?
+- - Why is synchronization necessary in multithreading? (real-world seat-booking analogy)
+- - Lock on an object vs lock on a class — difference
+- - Difference between `sleep()` and `wait()`
+- - Difference between synchronized collections and Concurrent collections (e.g., ConcurrentHashMap segment-level locking)
+- - How many ways can you create a thread?
+- - How to ensure Thread T2 runs after T1, and T3 runs after T2 (`join()` method)
+- - How to make a specific thread run last among five threads (Executor framework / join)
+- - What is the Executor framework? Why/when do you need it?
+- - What is a deadlock? Explain with an example (T1 and T2 each holding a resource the other needs)
+- - Scenario: shared HashMap in a singleton bean causing cross-user data leakage under load — explain root cause and fix (ConcurrentHashMap/synchronized map)
+- - Optimistic locking / version mismatch when multiple threads update the same record concurrently
+- - Have you faced any performance issues? How did you resolve them (multithreading)?
+- - Thread dump — have you used it?
 
 ## 6. Exception Handling
 - How is exception handling done in Java? (try-catch, throws, finally)
