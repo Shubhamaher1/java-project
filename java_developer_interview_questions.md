@@ -68,23 +68,23 @@
 
 ## 4. Collections Framework
 - - Which collections have you worked on? (List, Set, Map — ArrayList, LinkedList, HashSet, HashMap)
-- Explain HashSet (no order, no duplicates)
-- Explain ArrayList (duplicates allowed, insertion order preserved, random access)
-- Difference between ArrayList and LinkedList (search/read vs update/insert performance)
-- Difference between List and Set (duplicates, insertion order)
-- How can you preserve insertion order in a Set? (LinkedHashSet)
-- Difference between Comparable and Comparator
-- How to sort a list of employees by multiple fields (id, name) using Comparator, and using `thenComparing`
-- Is HashMap synchronized/thread-safe? How to make it thread-safe (`Collections.synchronizedMap`, `ConcurrentHashMap`, Hashtable)
-- Explain internal working of HashMap (hashing, buckets, collisions)
-- Contract between `hashCode()` and `equals()` methods
-- Can we use a custom object (e.g., Employee) as a HashMap key? What must you override?
-- What happens if you override `equals()` but not `hashCode()` (or vice versa)?
-- Why does Java not just give every object a unique/different hash code (why do we need to group equal objects into the same bucket)?
-- Why did Java switch from LinkedList to a Red-Black Tree for bucket collisions from Java 8 onward?
-- Fail-fast vs fail-safe iterators (ConcurrentModificationException, examples: ArrayList/HashMap vs ConcurrentHashMap)
-- Best practices/guidelines for using a custom object as a Map key
-- How to serialize an object while excluding a field (`transient` keyword)
+- - Explain HashSet (no order, no duplicates)
+- - Explain ArrayList (duplicates allowed, insertion order preserved, random access)
+- - Difference between ArrayList and LinkedList (search/read vs update/insert performance)
+- - Difference between List and Set (duplicates, insertion order)
+- - How can you preserve insertion order in a Set? (LinkedHashSet)
+- - Difference between Comparable and Comparator
+- -  How to sort a list of employees by multiple fields (id, name) using Comparator, and using `thenComparing`
+- - Is HashMap synchronized/thread-safe? How to make it thread-safe (`Collections.synchronizedMap`, `ConcurrentHashMap`, Hashtable)
+- - Explain internal working of HashMap (hashing, buckets, collisions)
+- - Contract between `hashCode()` and `equals()` methods
+- - Can we use a custom object (e.g., Employee) as a HashMap key? What must you override?
+- - What happens if you override `equals()` but not `hashCode()` (or vice versa)?
+- - Why does Java not just give every object a unique/different hash code (why do we need to group equal objects into the same bucket)?
+- - Why did Java switch from LinkedList to a Red-Black Tree for bucket collisions from Java 8 onward?
+- - Fail-fast vs fail-safe iterators (ConcurrentModificationException, examples: ArrayList/HashMap vs ConcurrentHashMap)
+- - Best practices/guidelines for using a custom object as a Map key
+- - How to serialize an object while excluding a field (`transient` keyword)
 
 ## 5. Multithreading & Concurrency
 - Why is synchronization necessary in multithreading? (real-world seat-booking analogy)
