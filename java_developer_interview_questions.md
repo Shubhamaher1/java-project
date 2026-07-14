@@ -67,7 +67,7 @@
 - - What is the use of the `clone()` method? Shallow copy via `clone()`
 
 ## 4. Collections Framework
-- Which collections have you worked on? (List, Set, Map — ArrayList, LinkedList, HashSet, HashMap)
+- - Which collections have you worked on? (List, Set, Map — ArrayList, LinkedList, HashSet, HashMap)
 - Explain HashSet (no order, no duplicates)
 - Explain ArrayList (duplicates allowed, insertion order preserved, random access)
 - Difference between ArrayList and LinkedList (search/read vs update/insert performance)
