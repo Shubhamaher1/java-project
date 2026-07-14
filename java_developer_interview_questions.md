@@ -102,15 +102,15 @@
 - - Thread dump — have you used it?
 
 ## 6. Exception Handling
-- How is exception handling done in Java? (try-catch, throws, finally)
-- Exception hierarchy: Throwable → Exception/Error; checked vs unchecked exceptions
-- Difference between checked and unchecked exceptions, with examples (SQLException/IOException vs ArithmeticException)
-- Difference between `throw` and `throws`
-- Can you have multiple catch blocks for a single try block? Can you nest try blocks?
-- Can we create our own checked exception? How (extend `Exception` vs `RuntimeException`)?
-- How does the compiler recognize a custom exception as "checked"?
-- How is global exception handling done in Spring Boot? (`@ControllerAdvice` + `@ExceptionHandler`)
-- Example: custom `EmployeeNotFoundException` thrown from service layer — how does the controller handle/propagate it?
+- - How is exception handling done in Java? (try-catch, throws, finally)
+- - Exception hierarchy: Throwable → Exception/Error; checked vs unchecked exceptions
+- - Difference between checked and unchecked exceptions, with examples (SQLException/IOException vs ArithmeticException)
+- - Difference between `throw` and `throws`
+- - Can you have multiple catch blocks for a single try block? Can you nest try blocks?
+- - Can we create our own checked exception? How (extend `Exception` vs `RuntimeException`)?
+- - How does the compiler recognize a custom exception as "checked"?
+- - How is global exception handling done in Spring Boot? (`@ControllerAdvice` + `@ExceptionHandler`)
+- - Example: custom `EmployeeNotFoundException` thrown from service layer — how does the controller handle/propagate it?
 
 ## 7. Design Patterns
 - How many ways can you break a Singleton pattern? (Serialization, Cloning, Reflection API)
