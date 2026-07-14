@@ -57,14 +57,14 @@
 - - Count character frequency in a string using `chars()` + `groupingBy`/`counting()`
 
 ## 3. Strings & Immutability
-- Why is String immutable in Java?
-- How do you "change" a String's value if it's immutable? (creates new object; use StringBuilder/StringBuffer for same reference)
-- Advantages of immutability (memory efficiency via string pool, thread safety)
-- Disadvantages of immutable classes
-- How to create your own immutable class? (final class, private final fields, no setters, parameterized constructor)
-- If a field inside an immutable class is itself mutable (e.g., `LocalDate`, `Address`, `List`), how do you prevent that from breaking immutability? (deep copy in constructor/getter)
-- Difference between deep copy and shallow copy — programmatic example
-- What is the use of the `clone()` method? Shallow copy via `clone()`
+- - Why is String immutable in Java?
+- - How do you "change" a String's value if it's immutable? (creates new object; use StringBuilder/StringBuffer for same reference)
+-  - Advantages of immutability (memory efficiency via string pool, thread safety)
+- - Disadvantages of immutable classes
+- - How to create your own immutable class? (final class, private final fields, no setters, parameterized constructor)
+- - If a field inside an immutable class is itself mutable (e.g., `LocalDate`, `Address`, `List`), how do you prevent that from breaking immutability? (deep copy in constructor/getter)
+- - Difference between deep copy and shallow copy — programmatic example
+- - What is the use of the `clone()` method? Shallow copy via `clone()`
 
 ## 4. Collections Framework
 - Which collections have you worked on? (List, Set, Map — ArrayList, LinkedList, HashSet, HashMap)
