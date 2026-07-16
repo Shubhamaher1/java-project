@@ -1,7 +1,7 @@
 # Java Developer Interview Questions — Compiled from All Transcripts
 
 ## 1. Core Java / OOPs
-- What are the OOPs concepts? (Abstraction, Encapsulation, Inheritance, Polymorphism)
+- - What are the OOPs concepts? (Abstraction, Encapsulation, Inheritance, Polymorphism)
 - Explain abstraction with a real-time example (e.g., ATM machine interface)
 - What is data hiding? How is it different from abstraction?
 - Which of these examples is true data abstraction vs encapsulation (scenario-based MCQ: private field, getter/setter, protected class, abstract car class)
