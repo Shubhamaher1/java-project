@@ -67,50 +67,50 @@
 - - What is the use of the `clone()` method? Shallow copy via `clone()`
 
 ## 4. Collections Framework
-- Which collections have you worked on? (List, Set, Map — ArrayList, LinkedList, HashSet, HashMap)
-- Explain HashSet (no order, no duplicates)
-- Explain ArrayList (duplicates allowed, insertion order preserved, random access)
-- Difference between ArrayList and LinkedList (search/read vs update/insert performance)
-- Difference between List and Set (duplicates, insertion order)
-- How can you preserve insertion order in a Set? (LinkedHashSet)
-- Difference between Comparable and Comparator
-- How to sort a list of employees by multiple fields (id, name) using Comparator, and using `thenComparing`
-- Is HashMap synchronized/thread-safe? How to make it thread-safe (`Collections.synchronizedMap`, `ConcurrentHashMap`, Hashtable)
-- Explain internal working of HashMap (hashing, buckets, collisions)
-- Contract between `hashCode()` and `equals()` methods
-- Can we use a custom object (e.g., Employee) as a HashMap key? What must you override?
-- What happens if you override `equals()` but not `hashCode()` (or vice versa)?
-- Why does Java not just give every object a unique/different hash code (why do we need to group equal objects into the same bucket)?
-- Why did Java switch from LinkedList to a Red-Black Tree for bucket collisions from Java 8 onward?
-- Fail-fast vs fail-safe iterators (ConcurrentModificationException, examples: ArrayList/HashMap vs ConcurrentHashMap)
-- Best practices/guidelines for using a custom object as a Map key
-- How to serialize an object while excluding a field (`transient` keyword)
+- - Which collections have you worked on? (List, Set, Map — ArrayList, LinkedList, HashSet, HashMap)
+- - Explain HashSet (no order, no duplicates)
+- - Explain ArrayList (duplicates allowed, insertion order preserved, random access)
+- - Difference between ArrayList and LinkedList (search/read vs update/insert performance)
+- - Difference between List and Set (duplicates, insertion order)
+- - How can you preserve insertion order in a Set? (LinkedHashSet)
+- - Difference between Comparable and Comparator
+- -  How to sort a list of employees by multiple fields (id, name) using Comparator, and using `thenComparing`
+- - Is HashMap synchronized/thread-safe? How to make it thread-safe (`Collections.synchronizedMap`, `ConcurrentHashMap`, Hashtable)
+- - Explain internal working of HashMap (hashing, buckets, collisions)
+- - Contract between `hashCode()` and `equals()` methods
+- - Can we use a custom object (e.g., Employee) as a HashMap key? What must you override?
+- - What happens if you override `equals()` but not `hashCode()` (or vice versa)?
+- - Why does Java not just give every object a unique/different hash code (why do we need to group equal objects into the same bucket)?
+- - Why did Java switch from LinkedList to a Red-Black Tree for bucket collisions from Java 8 onward?
+- - Fail-fast vs fail-safe iterators (ConcurrentModificationException, examples: ArrayList/HashMap vs ConcurrentHashMap)
+- - Best practices/guidelines for using a custom object as a Map key
+- - How to serialize an object while excluding a field (`transient` keyword)
 
 ## 5. Multithreading & Concurrency
-- Why is synchronization necessary in multithreading? (real-world seat-booking analogy)
-- Lock on an object vs lock on a class — difference
-- Difference between `sleep()` and `wait()`
-- Difference between synchronized collections and Concurrent collections (e.g., ConcurrentHashMap segment-level locking)
-- How many ways can you create a thread?
-- How to ensure Thread T2 runs after T1, and T3 runs after T2 (`join()` method)
-- How to make a specific thread run last among five threads (Executor framework / join)
-- What is the Executor framework? Why/when do you need it?
-- What is a deadlock? Explain with an example (T1 and T2 each holding a resource the other needs)
-- Scenario: shared HashMap in a singleton bean causing cross-user data leakage under load — explain root cause and fix (ConcurrentHashMap/synchronized map)
-- Optimistic locking / version mismatch when multiple threads update the same record concurrently
-- Have you faced any performance issues? How did you resolve them (multithreading)?
-- Thread dump — have you used it?
+- - Why is synchronization necessary in multithreading? (real-world seat-booking analogy)
+- - Lock on an object vs lock on a class — difference
+- - Difference between `sleep()` and `wait()`
+- - Difference between synchronized collections and Concurrent collections (e.g., ConcurrentHashMap segment-level locking)
+- - How many ways can you create a thread?
+- - How to ensure Thread T2 runs after T1, and T3 runs after T2 (`join()` method)
+- - How to make a specific thread run last among five threads (Executor framework / join)
+- - What is the Executor framework? Why/when do you need it?
+- - What is a deadlock? Explain with an example (T1 and T2 each holding a resource the other needs)
+- - Scenario: shared HashMap in a singleton bean causing cross-user data leakage under load — explain root cause and fix (ConcurrentHashMap/synchronized map)
+- - Optimistic locking / version mismatch when multiple threads update the same record concurrently
+- - Have you faced any performance issues? How did you resolve them (multithreading)?
+- - Thread dump — have you used it?
 
 ## 6. Exception Handling
-- How is exception handling done in Java? (try-catch, throws, finally)
-- Exception hierarchy: Throwable → Exception/Error; checked vs unchecked exceptions
-- Difference between checked and unchecked exceptions, with examples (SQLException/IOException vs ArithmeticException)
-- Difference between `throw` and `throws`
-- Can you have multiple catch blocks for a single try block? Can you nest try blocks?
-- Can we create our own checked exception? How (extend `Exception` vs `RuntimeException`)?
-- How does the compiler recognize a custom exception as "checked"?
-- How is global exception handling done in Spring Boot? (`@ControllerAdvice` + `@ExceptionHandler`)
-- Example: custom `EmployeeNotFoundException` thrown from service layer — how does the controller handle/propagate it?
+- - How is exception handling done in Java? (try-catch, throws, finally)
+- - Exception hierarchy: Throwable → Exception/Error; checked vs unchecked exceptions
+- - Difference between checked and unchecked exceptions, with examples (SQLException/IOException vs ArithmeticException)
+- - Difference between `throw` and `throws`
+- - Can you have multiple catch blocks for a single try block? Can you nest try blocks?
+- - Can we create our own checked exception? How (extend `Exception` vs `RuntimeException`)?
+- - How does the compiler recognize a custom exception as "checked"?
+- - How is global exception handling done in Spring Boot? (`@ControllerAdvice` + `@ExceptionHandler`)
+- - Example: custom `EmployeeNotFoundException` thrown from service layer — how does the controller handle/propagate it?
 
 ## 7. Design Patterns
 - How many ways can you break a Singleton pattern? (Serialization, Cloning, Reflection API)
