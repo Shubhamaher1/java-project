@@ -40,7 +40,7 @@
 - - Can we declare an entity/class as final? What's the effect (can't extend / immutable)?
 
 ## 2. Java 8 Features & Streams
-- What are the Java 8 features you've used? (Lambda expressions, functional interfaces, Stream API, method references, Optional, default/static methods)
+- - What are the Java 8 features you've used? (Lambda expressions, functional interfaces, Stream API, method references, Optional, default/static methods)
 - What is a Lambda expression? Why was it introduced?
 - What are functional interfaces? Relevance to lambda expressions
 - What is a method reference (`::`)? When would you use it?
