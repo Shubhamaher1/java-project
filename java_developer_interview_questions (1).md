@@ -41,7 +41,7 @@
 
 ## 2. Java 8 Features & Streams
 - - What are the Java 8 features you've used? (Lambda expressions, functional interfaces, Stream API, method references, Optional, default/static methods)
-- What is a Lambda expression? Why was it introduced?
+- - What is a Lambda expression? Why was it introduced?
 - What are functional interfaces? Relevance to lambda expressions
 - What is a method reference (`::`)? When would you use it?
 - What is the difference between `map()` and `flatMap()` in streams?
